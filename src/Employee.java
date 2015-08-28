@@ -5,18 +5,28 @@ public class Employee {
 
     private String name;
     private double monthlySalary;
+    private int year;
+
+    /*
+            Constructors
+     */
 
     public Employee() {
 
     }
 
-    public Employee(String name, double monthlySalary) {
+    public Employee(int year, String name, double monthlySalary) {
+        this.year = year;
         this.name = name;
         this.monthlySalary = monthlySalary;
     }
 
-    public double annualSalary(double monthlySalary) {
-        return monthlySalary * 12;
+    /*
+            Functions
+     */
+
+    public double annualSalary() {
+        return this.monthlySalary * 12;
     }
 
     public String toString() {
@@ -24,4 +34,31 @@ public class Employee {
                 "\nMonthly Salary: " + monthlySalary;
     }
 
+    /*
+            Getters and Setters
+     */
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public void setMonthlySalary(double monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 }

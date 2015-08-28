@@ -1,5 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -7,35 +7,66 @@ import java.util.Scanner;
  */
 public class TestEmployee {
 
-    public void builder(String[] args) {
+    private ArrayList<Employee> employeeArrayList = new ArrayList<>();
+    private ArrayList<Salesman> salesmanArrayList = new ArrayList<>();
+    private ArrayList<Executive> executiveArrayList = new ArrayList<>();
+
+    public void builder() {
+
         try {
-            String content = new Scanner(new File(args[0]))
-            .useDelimiter("\\Z") // To the end of the file
-            .next();
 
-            String[] line = content.split("\n");
-            String[][] sheet = new String[line.length][];
+            Scanner input = new Scanner(new File("data.txt"));
 
-            // Fills the 2D array
-            for (int i = 0; i < line.length; i++) {
-                sheet[i] = line[i].split("\\t");
-            }
+            while (input.hasNext()) {
 
-            // Prints the contents of the file as a 2D matrix
-            for (String[] row : sheet) {
-                for (String cell : row) {
-                    System.out.println(cell + "\t");
+                int year = input.nextInt();
+                String type = input.next();
+                String name = input.next();
+                double monthlySalary = input.nextDouble();
+
+                if (type.equals("Salesman")) {
+                    double salesOrStock = input.nextDouble();
+                    salesmanArrayList.add(new Salesman(year, name, monthlySalary, salesOrStock));
+
+                } else if (type.equals("Executive")) {
+                    double salesOrStock = input.nextDouble();
+                    executiveArrayList.add(new Executive(year, name, monthlySalary, salesOrStock));
+
+                } else {
+                    employeeArrayList.add(new Employee(year, name, monthlySalary));
                 }
-                System.out.println();
+
+                input.nextLine();
+
             }
 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("File not found.");
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.out.println("Null pointer.");
+            e.printStackTrace();
+        }
+    }
+
+    public void toConsole() {
+        for (Employee em : employeeArrayList) {
+            System.out.println(em.toString());
+        }
+
+        for (Salesman sa : salesmanArrayList) {
+            System.out.println(sa.toString());
+        }
+
+        for (Executive ex : executiveArrayList) {
+            System.out.println(ex.toString());
         }
     }
 
     public static void main(String[] args) {
         TestEmployee list = new TestEmployee();
-        list.builder(args);
+        list.builder();
+        list.toConsole();
+        
     }
 }
