@@ -45,7 +45,7 @@ public class Executive extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + "\nCurrent Stock Price: \t" +
+        return super.toString() + "\nCurrent Stock Price: \t\t" +
                 df.format(this.currentStockPrice);
     }
 
