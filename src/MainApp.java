@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by Thomas Hodges on 8/22/2015.
  *
- * Filename: TestEmployee.java
+ * Filename: MainApp.java
  *
  * Course: CMIS 242 - Intermediate Programming
  * Professor: Ioan Salomie
@@ -16,13 +16,13 @@ import java.util.Scanner;
  * Platform: Windows 10, IntelliJ IDEA 14.1.4
  * Compiler: jdk1.8.0_45
  */
-public class TestEmployee {
+public class MainApp {
 
     // Private ArrayLists for each year of employee data
     private ArrayList<Employee> employeeArrayList2014 = new ArrayList<>();
     private ArrayList<Employee> employeeArrayList2015 = new ArrayList<>();
 
-    // Private DecimalFormat object to be used by functions in the TestEmployee class
+    // Private DecimalFormat object to be used by functions in the MainApp class
     private static DecimalFormat df = new DecimalFormat("$0.00");
 
     /*
@@ -151,7 +151,7 @@ public class TestEmployee {
     }
 
     public static void main(String[] args) {
-        TestEmployee list = new TestEmployee();
+        MainApp list = new MainApp();
         list.builder();
         list.displayAllEmployees();
         
