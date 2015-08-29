@@ -1,5 +1,14 @@
 /**
- * Created by Thomas on 8/22/2015.
+ * Created by Thomas Hodges on 8/22/2015.
+ *
+ * Filename: Executive.java
+ *
+ * Course: CMIS 242 - Intermediate Programming
+ * Professor: Ioan Salomie
+ * Assignment: Project 1
+ *
+ * Platform: Windows 10, IntelliJ IDEA 14.1.4
+ * Compiler: jdk1.8.0_45
  */
 public class Executive extends Employee{
 
@@ -36,7 +45,8 @@ public class Executive extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + "\nCurrent Stock Price: " + currentStockPrice;
+        return super.toString() + "\nCurrent Stock Price: \t" +
+                df.format(this.currentStockPrice);
     }
 
     /*
