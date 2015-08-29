@@ -46,7 +46,7 @@ public class Employee {
 
     public String toString() {
         return "\nEmployee Name: \t\t\t" + this.name +
-                "\nMonthly Salary: \t\t" + df.format(this.monthlySalary);
+                "\nAnnual Salary: \t\t\t" + df.format(this.annualSalary());
     }
 
     /*
